@@ -12,10 +12,10 @@ import { MarkdownModule } from 'ngx-markdown';
   imports: [
     CommonModule,
     MarkdownModule,
-    ChatMessageComponent,
     ReactiveFormsModule,
-    TextMessageBoxComponent,
+    ChatMessageComponent,
     MyMessageComponent,
+    TextMessageBoxComponent,
     TypingLoaderComponent,
 ],
   templateUrl: './prosConsPage.component.html',

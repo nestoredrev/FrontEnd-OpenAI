@@ -10,8 +10,8 @@ import { OpenAiService } from '@services/openai.service';
   imports: [
     CommonModule,
     ChatMessageComponent,
-    MyMessageComponent,
     GptMessageOrthographyComponent,
+    MyMessageComponent,
     TypingLoaderComponent,
     TextMessageBoxComponent,
     TextMessageBoxFileComponent,
