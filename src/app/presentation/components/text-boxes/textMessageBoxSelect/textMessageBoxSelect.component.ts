@@ -40,6 +40,6 @@ export class TextMessageBoxSelectComponent {
     const { prompt, selectedOption } = this.form.value;
 
     this.onMessage.emit( { prompt: prompt!, selectedOption: selectedOption! } ) ;
-    this.form.reset();
+    //this.form.reset();
   }
 }
