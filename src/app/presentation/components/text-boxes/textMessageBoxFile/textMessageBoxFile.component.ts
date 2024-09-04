@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 export interface textMessageEvent{
+  file: File,
   prompt?: string | null,
-  file: File
 }
 
 
