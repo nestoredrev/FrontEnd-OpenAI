@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal, OnInit } from '@angular/core';
 import { ChatMessageComponent, GptMessageOrthographyComponent, MyMessageComponent, TextMessageBoxComponent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TypingLoaderComponent } from '@components/index';
 import { Message } from '@interfaces/message.interface';
 import { OpenAiService } from '@services/openai.service';
@@ -20,12 +20,22 @@ import { OpenAiService } from '@services/openai.service';
   templateUrl: './orthographyPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class OrthographyPageComponent {
+export default class OrthographyPageComponent implements OnInit {
 
   public messages = signal<Message[]>([]);
   public isLoading = signal<boolean>(false);
   
   public openAiService = inject( OpenAiService );
+
+  ngOnInit(){
+    if( sessionStorage.getItem('message') ) {
+      this.messages.set( JSON.parse( sessionStorage.getItem('message') ?? '' ) );
+    }else{
+      sessionStorage.setItem('message', JSON.stringify( this.messages() ));
+    } 
+  }
+
+  
 
   handleMessage( prompt:string ){
 
@@ -50,8 +60,7 @@ export default class OrthographyPageComponent {
           info: resp
         }
       ])
-
+      sessionStorage.setItem('message', JSON.stringify( this.messages() ));
     })
-    
   }
 }
