@@ -3,6 +3,7 @@ export * from './sideBarMenuItem/sideBarMenuItem.component';
 export * from './chat-bubbles/chatMessage/chatMessage.component';
 export * from './chat-bubbles/myMessage/myMessage/myMessage.component';
 export * from './chat-bubbles/gptMessageOrthography/gptMessageOrthography.component';
+export * from './chat-bubbles/GptMessageEditableImage/GptMessageEditableImage.component';
 
 
 export * from './typingLoader/typingLoader.component';
